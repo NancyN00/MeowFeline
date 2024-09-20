@@ -102,7 +102,7 @@ fun FelineDetailScreenContent(
     Scaffold(
         modifier = modifier.fillMaxSize(),
     ) { paddingValues ->
-        val catInfo = cat.breeds[0]
+        val catInfo = cat.breeds?.get(0)
         Column(
             modifier =
             Modifier
@@ -161,29 +161,37 @@ fun FelineDetailScreenContent(
                     .fillMaxWidth()
                     .padding(horizontal = 20.dp),
             ) {
-                Text(
-                    text = catInfo.name,
-                    fontSize = 32.sp,
-                    color = Color.White,
-                )
+                if (catInfo != null) {
+                    Text(
+                        text = catInfo.name,
+                        fontSize = 32.sp,
+                        color = Color.White,
+                    )
+                }
                 Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = "Origin: " + catInfo.origin,
-                    fontSize = 12.sp,
-                    color = Color.White,
-                )
+                if (catInfo != null) {
+                    Text(
+                        text = "Origin: " + catInfo.origin,
+                        fontSize = 12.sp,
+                        color = Color.White,
+                    )
+                }
                 Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = catInfo.temperament,
-                    fontSize = 12.sp,
-                    color = Color.White,
-                )
+                if (catInfo != null) {
+                    Text(
+                        text = catInfo.temperament,
+                        fontSize = 12.sp,
+                        color = Color.White,
+                    )
+                }
                 Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = catInfo.description,
-                    fontSize = 12.sp,
-                    color = Color.White,
-                )
+                if (catInfo != null) {
+                    Text(
+                        text = catInfo.description,
+                        fontSize = 12.sp,
+                        color = Color.White,
+                    )
+                }
             }
         }
     }

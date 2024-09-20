@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class CatDetailResponse(
     @SerialName("breeds")
-    val breeds: List<Breed>,
+    val breeds: List<Breed>? = null,
     @SerialName("height")
     val height: Int,
     @SerialName("id")
